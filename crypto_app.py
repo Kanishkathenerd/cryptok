@@ -481,13 +481,13 @@ def fetch_historicrypto_yf(df):
             pass
         else:
         # ! we will fetch 60 days - data with information every 15 minutes for all coins
-        try:
-            data = yf.download(tickers=f'{symbol}-USD', period='60d', interval='15m')
-            data.drop(['Open', "High", "Adj Close", 'Low'], inplace=True, axis=1)
-            data.to_csv(f'yf_{symbol}-USD.csv', index_label='Date')
-        except Exception as e:
-            failed_coins.append(symbol)
-            pass
+            try:
+                data = yf.download(tickers=f'{symbol}-USD', period='60d', interval='15m')
+                data.drop(['Open', "High", "Adj Close", 'Low'], inplace=True, axis=1)
+                data.to_csv(f'yf_{symbol}-USD.csv', index_label='Date')
+            except Exception as e:
+                failed_coins.append(symbol)
+                pass
     print(failed_coins)
     print('Done')
 
