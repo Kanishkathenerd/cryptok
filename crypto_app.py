@@ -423,7 +423,7 @@ elif percent_timeframe == '30d':
     col3.write('*30 days period*')
     plt.figure(figsize=(5, 25))
     plt.subplots_adjust(top=1, bottom=0)
-    df_change['pct_change_30d'].plot(kind='barh',                               color=df_change.positive_percent_change_30d.map({True: 'g', False: 'r'}))
+    df_change['pct_change_30d'].plot(kind='barh', color=df_change.positive_percent_change_30d.map({True: 'g', False: 'r'}))
     negative = 0
     counter = 0
     for pct in df_change.pct_change_30d:
@@ -459,7 +459,7 @@ elif percent_timeframe == '90d':
     col3.write('*90 days period*')
     plt.figure(figsize=(5, 25))
     plt.subplots_adjust(top=1, bottom=0)
-    df_change['pct_change_90d'].plot(kind='barh',                               color=df_change.positive_percent_change_90d.map({True: 'g', False: 'r'}))
+    df_change['pct_change_90d'].plot(kind='barh', color=df_change.positive_percent_change_90d.map({True: 'g', False: 'r'}))
     negative = 0
     counter = 0
     for pct in df_change.pct_change_90d:
@@ -477,14 +477,14 @@ elif percent_timeframe == '90d':
 def fetch_historicrypto_yf(df):
     failed_coins = []
     for symbol in df.Symbol:
-        '''if os.path.exists(f'YahooCSVs/yf_{symbol}-USD.csv'):
+        if os.path.exists(f'yf_{symbol}-USD.csv'):
             pass
-        else:'''
+        else:
         # ! we will fetch 60 days - data with information every 15 minutes for all coins
         try:
             data = yf.download(tickers=f'{symbol}-USD', period='60d', interval='15m')
             data.drop(['Open', "High", "Adj Close", 'Low'], inplace=True, axis=1)
-            data.to_csv(f'YahooCSVs/yf_{symbol}-USD.csv', index_label='Date')
+            data.to_csv(f'yf_{symbol}-USD.csv', index_label='Date')
         except Exception as e:
             failed_coins.append(symbol)
             pass
@@ -499,7 +499,7 @@ def renew_data(df):
         try:
             data = yf.download(tickers=f'{symbol}-USD', period='1min')
             data.drop(['Open', "High", "Adj Close", 'Low'], inplace=True, axis=1)
-            data.to_csv(f'YahooCSVs/yf_{symbol}-USD.csv', mode='a', header=False)
+            data.to_csv(f'yf_{symbol}-USD.csv', mode='a', header=False)
             #break
         except Exception as e:
             failed_coins.append(symbol)
@@ -512,7 +512,7 @@ def hollistic_df(df_coins):
     df_prices = pd.DataFrame(columns=[symbol for symbol in df_coins.Symbol])
     #len_df = 5680
     symbols_proccessed = 0
-    with open(f'YahooCSVs/yf_BTC-USD.csv', 'r') as btc:
+    with open(f'yf_BTC-USD.csv', 'r') as btc:
         new_df = pd.DataFrame()
         # print(f.name)
         reader = DictReader(btc)
@@ -526,7 +526,7 @@ def hollistic_df(df_coins):
     for symbol in df_prices.columns:
         #st.progress(symbols_proccessed)
         try:
-            with open(f'YahooCSVs/yf_{symbol}-USD.csv', 'r') as f:
+            with open(f'yf_{symbol}-USD.csv', 'r') as f:
                 new_df = pd.DataFrame()
                 #print(f.name)
                 reader = DictReader(f)
@@ -557,7 +557,7 @@ def new_hollistic_df(df_coins):
     symbols_proccessed = 0
     for symbol in df_prices.columns:
         try:
-            file = pd.read_csv(f'YahooCSVs/yf_{symbol}-USD.csv')
+            file = pd.read_csv(f'yf_{symbol}-USD.csv')
             raw_df = pd.DataFrame(file.iloc[-1].values)
             new_df = pd.DataFrame(columns=[symbol])
 
