@@ -313,13 +313,8 @@ df_coins = df_selected_coin[:num_coin]
 # ! Title of dataframe
 col2.subheader('Price Data of Selected Cryptocurrency')
 # ! Dataframe display
-diplay_type = col2.selectbox('Dataframe Display Type', options=("Some Values", "All Values"))
-if diplay_type == "All Values":
-    col2.table(df_coins.style.highlight_max(axis=0, props='color:white;background-color:green').highlight_min(axis=0, props='color:white;background-color:red'))
-else:
-    col2.dataframe(df_coins.style.highlight_max(axis=0, props='color:white;background-color:green').highlight_min(axis=0, props='color:white;background-color:red'), width=900, height=400 )
+col2.dataframe(df_coins.style.highlight_max(axis=0, props='color:white;background-color:green').highlight_min(axis=0, props='color:white;background-color:red'), width=900, height=400 )
 col2.write(f"Data Dimensions: {str(df_coins.shape[0])}x{str(df_coins.shape[1])}")
-#st.dataframe()
 
 # ! -------------------------------------------
 
