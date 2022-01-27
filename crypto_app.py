@@ -586,7 +586,6 @@ else:
 
 plot_choice = col2.selectbox('Coin Plots', ['No', 'Yes'])
 if plot_choice == 'Yes':
-    import plotly.express as px
 
     coin_choice = col2.multiselect('Coin Plot', options=[symbol for symbol in df_coins.Symbol], default = df_coins['Symbol'][1])
 
