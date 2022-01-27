@@ -275,13 +275,8 @@ def load_data(value, currency_price_unit):
 
 dict_of_tables = {"Top Cryptocurrencies": "5", #put this first to be shown first
                   }
-'''
-"Trending Crypto": "0",
-"Most Visited Crypto": "1",
-"Recently Added": "2",
-"Top Gainers": "3",
-"Top Losers": "4"
-'''
+# "Trending Crypto": "0", "Most Visited Crypto": "1", "Recently Added": "2", "Top Gainers": "3", "Top Losers": "4"
+
 list_of_units = ["USD", "BTC", "ETH"]
 
 # ! 1. Sidebar = Main Panel
