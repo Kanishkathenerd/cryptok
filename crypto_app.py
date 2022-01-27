@@ -583,37 +583,3 @@ if heatmap_selection == 'Yes':
     col2.write(fig)
 else:
     pass
-
-plot_choice = col2.selectbox('Coin Plots', ['No', 'Yes'])
-if plot_choice == 'Yes':
-    coin_choice = col2.multiselect('Coin Plot', options=[symbol for symbol in df_coins.Symbol], default = df_coins['Symbol'][1])
-    try:
-        multidf = df_prices[list(coin_choice)]
-        multidf.replace('NaN', 0)
-
-
-        mutable_chart = col2.line_chart(multidf)
-
-        if col2.button('Renew data'):
-            renew_data(df_coins)
-
-            df_new = new_hollistic_df(df_coins)
-            #mutable_table.add_rows(df_new)
-
-            mutable_chart.add_rows(df_new[list(coin_choice)])
-        else:
-            pass
-    except Exception as e:
-        col2.error(f'Note: {e}')
-        new_columns = []
-        for choice in coin_choice:
-            if choice in df_prices.columns:
-                new_columns.append(choice)
-        multidf = df_prices[new_columns]
-
-        mutable_chart = col2.line_chart(multidf)
-
-
-
-
-
