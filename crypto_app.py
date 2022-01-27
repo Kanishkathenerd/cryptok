@@ -22,7 +22,7 @@ st.image(image, use_column_width=True, output_format='png')
 st.title("CryptoCurrency Web App")
 st.markdown("""
 * This app retrieves cryptocurrency data from [CoinMarketCap](https://coinmarketcap.com), [Coinbase](https://www.coinbase.com) and [YahooFinance](http://finance.yahoo.com), regarding the top 100 Cryptos **right now**.
-* **Note:** Any abrupt price change in the charts is due to a lack of data regarding the certain cryptocurrency caused by the API.
+<h1> **Note:** Any abrupt price change in the charts is due to a lack of data regarding the certain cryptocurrency caused by the API. </h1> 
 """)
 # ! ---------------------------------
 # ! About section
