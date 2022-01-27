@@ -502,7 +502,7 @@ def renew_data(df):
     print(failed_coins)
     print('Done')
 
-@st.cache
+#@st.cache
 def hollistic_df(df_coins):
     df_prices = pd.DataFrame(columns=[symbol for symbol in df_coins.Symbol])
     #len_df = 5680
