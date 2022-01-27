@@ -583,3 +583,71 @@ if heatmap_selection == 'Yes':
     col2.write(fig)
 else:
     pass
+
+plot_choice = col2.selectbox('Coin Plots', ['No', 'Yes'])
+if plot_choice == 'Yes':
+    import plotly.express as px
+
+    coin_choice = col2.multiselect('Coin Plot', options=[symbol for symbol in df_coins.Symbol], default = df_coins['Symbol'][1])
+
+
+    df_prices.replace(0, float('nan'), inplace=True)
+    col2.markdown("""
+* **Start Date:** 2021-11-16
+* **Price change frequency:** 15 minutes
+""")
+    col2.subheader('Cryptocurrency Graph')
+    plt.style.use('fivethirtyeight')
+    my_crypto = df_prices[coin_choice]
+    plt.figure(figsize=(12.2, 4.5))
+    for c in my_crypto.columns.values:
+        plt.plot(my_crypto[c], label=c)
+    plt.xlabel('price change every 15-minutes')
+    plt.ylabel('Crypto Price ($)')
+    plt.legend(my_crypto.columns.values)
+    col2.pyplot(plt)
+
+    # Scale the data
+    # the min-max scaler method scales the dataset so that all the input features lie between 0 and 100 inclusive
+    from sklearn import preprocessing
+
+    min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0, 100))
+    scaled = min_max_scaler.fit_transform(df_prices[coin_choice])
+
+    df_scale = pd.DataFrame(scaled, columns=df_prices[coin_choice].columns)
+    # Visualize the scaled data
+    my_crypto = df_scale
+
+    col2.subheader('Crypto Scaled Graph')
+    plt.figure(figsize=(12.4, 4.5))
+    for c in my_crypto.columns.values:
+        plt.plot(my_crypto[c], label=c)
+    plt.xlabel('price change every 15-minutes')
+    plt.ylabel('Crypto Scaled Price ($)')
+    plt.legend(my_crypto.columns.values)
+    col2.pyplot(plt)
+
+    DSR = df_prices[coin_choice].pct_change(1)
+
+    col2.subheader('15-minutes Simple Returns')
+    plt.figure(figsize=(12, 4.5))
+    for c in DSR.columns.values:
+        plt.plot(DSR.index, DSR[c], label=c, lw=2, alpha=.7)
+    plt.ylabel('Percentage (in decimal form')
+    plt.xlabel('price change every 15-minutes')
+    plt.legend(DSR.columns.values, loc='upper right')
+    col2.pyplot(plt)
+
+    # daily cumulative simple returns.
+    col2.subheader('15-minutes Cumulative Simple Return')
+    DCSR = (DSR+1).cumprod()
+    plt.figure(figsize=(12.2, 4.5))
+    for c in DCSR.columns.values:
+        plt.plot(DCSR.index, DCSR[c], lw=2, label=c)
+    plt.xlabel('price change every 15-minutes')
+    plt.ylabel('Growth of $1 investment')
+    plt.legend(DCSR.columns.values, loc='upper left', fontsize=10)
+    col2.pyplot(plt)
+
+
+
