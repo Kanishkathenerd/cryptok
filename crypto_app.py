@@ -28,7 +28,7 @@ This app retrieves cryptocurrency data from [CoinMarketCap](https://coinmarketca
 # ! About section
 expander_bar = st.expander('About')
 expander_bar.markdown("""
-* **Python Libraries:** pandas, numpy, base64, matplotlib, requests, bs4, json, time, datetime, seaborn, csv
+* **Python Libraries:** pandas, numpy, scikit-learn, base64, matplotlib, requests, bs4, json, time, datetime, seaborn, csv, PIL, colorama, yfinance
 * **Data Source:** [CoinMarketCap](https://coinmarketcap.com), [Coinbase](https://www.coinbase.com), [YahooFinance](http://finance.yahoo.com)
 """)
 
