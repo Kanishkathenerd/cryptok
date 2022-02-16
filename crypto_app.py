@@ -536,7 +536,7 @@ def hollistic_df(df_coins):
                 f.close()
             df_prices[symbol] = pd.Series(new_df[symbol])
         except Exception as e:
-            st.exception(e)
+            #st.exception(e)
             df_prices[symbol] = 1
             pass
         symbols_proccessed +=1
