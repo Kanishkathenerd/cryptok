@@ -575,7 +575,7 @@ fig, ax = plt.subplots(figsize=(14,20)) #figsize=(12,7)
 heatmap_selection = col2.selectbox('Correlation Heatmap Gram', ("No", "Yes"))
 if heatmap_selection == 'Yes':
     sb.heatmap(data=correlation_df, xticklabels=True, yticklabels=True, annot=True)
-    col2.subheader('Correlation heatmap of chosen Crypto')
+    col2.subheader('Correlation heatmap of selected Crypto')
     col2.write(fig)
 else:
     pass
