@@ -72,7 +72,7 @@ def load_data(value, currency_price_unit):
         price = []
 
         #currency_price_unit = "USD"
-                for i in listings_basic:
+        for i in listings_basic:
             try:
                 coin_name.append(i[14])
                 #print(f'{Fore.YELLOW}{i[14]}{Style.RESET_ALL}')
