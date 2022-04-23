@@ -596,7 +596,7 @@ if plot_choice == 'Yes':
 
     df_prices.replace(0, float('nan'), inplace=True)
     col2.markdown("""
-* **Start Date:** 2021-11-16
+* **Start Date:** 16/11/2021
 * **Price change frequency:** 15 minutes
 """)
     col2.subheader('Cryptocurrency Graph')
