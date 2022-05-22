@@ -74,20 +74,24 @@ def load_data(value, currency_price_unit):
 
         #currency_price_unit = "USD"
         for i in listings_basic:
+
+
             try:
-                coin_name.append(i[14])
+                coin_name.append(i[13])
                 #print(f'{Fore.YELLOW}{i[14]}{Style.RESET_ALL}')
             except Exception as e:
                 pass
             try:
-                coin_symbol.append(i[132])
+                coin_symbol.append(i[131])
                 #print(f'{Fore.YELLOW}{i[130]}{Style.RESET_ALL}')
             except Exception as e:
                 pass
 
             if currency_price_unit == 'USD':
+
                 try:
-                    price.append(i[65])
+
+                    price.append(i[64])
                     #print(f'{Fore.YELLOW}{i[65]}{Style.RESET_ALL}')
 
                 except Exception as e:
@@ -96,121 +100,121 @@ def load_data(value, currency_price_unit):
                     #for idx, item in enumerate(listings_basic[0]['keysArr']):
                     #    print(idx, ' - ', item)
                     #print(listings_basic[0]['keysArr'])
-                    pct_1h.append(i[59])
+                    pct_1h.append(i[58])
                 except Exception as e:
                     pass
                 try:
-                    pct_24h.append(i[60])
+                    pct_24h.append(i[59])
                 except Exception as e:
                     pass
                 try:
-                    pct_7d.append(i[63])
+                    pct_7d.append(i[62])
                 except Exception as e:
                     pass
                 try:
-                    pct_30d.append(i[61])
+                    pct_30d.append(i[60])
                 except Exception as e:
                     pass
                 try:
-                    pct_60d.append(i[62])
+                    pct_60d.append(i[61])
                 except Exception as e:
                     pass
                 try:
-                    pct_90d.append(i[64])
+                    pct_90d.append(i[63])
                 except Exception as e:
                     pass
                 try:
-                    market_cap.append(i[56])
+                    market_cap.append(i[55])
                 except Exception as e:
                     pass
                 try:
-                    vol_24h.append(i[68])
+                    vol_24h.append(i[67])
                 except Exception as e:
                     pass
                 try:
-                    vol_7d.append(i[70])
+                    vol_7d.append(i[69])
                 except Exception as e:
                     pass
             elif currency_price_unit == "BTC":
                 try:
-                    price.append(i[27])
+                    price.append(i[26])
                 except Exception as e:
                     pass
                 try:
-                    pct_1h.append(i[21])
+                    pct_1h.append(i[20])
                 except Exception as e:
                     pass
                 try:
-                    pct_24h.append(i[22])
+                    pct_24h.append(i[21])
                 except Exception as e:
                     pass
                 try:
-                    pct_7d.append(i[25])
+                    pct_7d.append(i[24])
                 except Exception as e:
                     pass
                 try:
-                    pct_30d.append(i[23])
+                    pct_30d.append(i[22])
                 except Exception as e:
                     pass
                 try:
-                    pct_60d.append(i[24])
+                    pct_60d.append(i[23])
                 except Exception as e:
                     pass
                 try:
-                    pct_90d.append(i[26])
+                    pct_90d.append(i[25])
                 except Exception as e:
                     pass
                 try:
-                    market_cap.append(i[18])
+                    market_cap.append(i[17])
                 except Exception as e:
                     pass
                 try:
-                    vol_24h.append(i[30])
+                    vol_24h.append(i[29])
                 except Exception as e:
                     pass
                 try:
-                    vol_7d.append(i[32])
+                    vol_7d.append(i[31])
                 except Exception as e:
                     pass
             elif currency_price_unit == "ETH":
                 try:
-                    price.append(i[46])
+                    price.append(i[45])
                 except Exception as e:
                     pass
                 try:
-                    pct_1h.append(i[40])
+                    pct_1h.append(i[49])
                 except Exception as e:
                     pass
                 try:
-                    pct_24h.append(i[41])
+                    pct_24h.append(i[40])
                 except Exception as e:
                     pass
                 try:
-                    pct_7d.append(i[44])
+                    pct_7d.append(i[43])
                 except Exception as e:
                     pass
                 try:
-                    pct_30d.append(i[42])
+                    pct_30d.append(i[41])
                 except Exception as e:
                     pass
                 try:
-                    pct_60d.append(i[43])
+                    pct_60d.append(i[42])
                 except Exception as e:
                     pass
                 try:
-                    pct_90d.append(i[45])
+                    pct_90d.append(i[44])
                 except Exception as e:
                     pass
                 try:
-                    market_cap.append(i[37])
+                    market_cap.append(i[36])
                 except Exception as e:
                     pass
                 try:
-                    vol_24h.append(i[49])
+                    vol_24h.append(i[48])
                 except Exception as e:
                     pass
                 try:
-                    vol_7d.append(i[51])
+                    vol_7d.append(i[50])
                 except Exception as e:
                     pass
     else:
